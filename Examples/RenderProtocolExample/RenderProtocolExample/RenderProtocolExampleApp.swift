@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RenderProtocolExampleApp: App {
+    @State var navigationPath = NavigationPath()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $navigationPath) {
+                ContentView()
+            }
         }
     }
 }
