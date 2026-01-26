@@ -18,8 +18,8 @@ internal actor RPNetworkManager: RPManager {
     let address: String
     let port: Int
     
-    private var connectionClient: RPClient?
-    private var connectionTask: ConnectionTask?
+    var connectionClient: RPClient?
+    var connectionTask: ConnectionTask?
     
     init(address: String, port: Int) {
         self.address = address
@@ -39,6 +39,6 @@ internal actor RPNetworkManager: RPManager {
         )
         let gRPCClient = GRPCClient(transport: transport)
         let task = Task.detached { try await gRPCClient.runConnections() }
-        return (RPRenderService.Client(wrapping: gRPCClient), task)
+        return (gRPCClient, task)
     }
 }

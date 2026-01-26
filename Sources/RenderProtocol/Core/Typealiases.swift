@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GRPCCore
 import RPGeneratedSwift
 import GRPCNIOTransportHTTP2
 
@@ -13,4 +14,6 @@ public typealias RPPortable = Codable & Hashable & Equatable & Identifiable & Se
 
 public typealias RPPortableEnum = RPPortable & CaseIterable
 
-internal typealias RPClient = RPRenderService.Client<HTTP2ClientTransport.TransportServices>
+internal typealias RPClient = GRPCClient<HTTP2ClientTransport.TransportServices>
+
+internal typealias RPRenderServiceClient = RPRenderService.Client<HTTP2ClientTransport.TransportServices>

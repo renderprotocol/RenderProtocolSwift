@@ -8,5 +8,6 @@
 import Foundation
 
 internal enum RPConstants {
-    static let networkManagerID: String = "renderprotocol.networkmanager"
+    static let cacheManagerID: String = "renderprotocol.cache_manager"
+    static let networkManagerID: String = "renderprotocol.network_manager"
 }

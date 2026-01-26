@@ -6,13 +6,30 @@ import RPGeneratedSwift
 
 public enum RenderProtocol {
     static func initialize(with config: RPConfig) async throws {
+        let cacheManager = RPCacheManager()
+        
         let networkManager = RPNetworkManager(address: config.address, port: config.port)
         try await networkManager.connect()
         
+        try await RPManagerRegistry.shared.register(cacheManager)
         try await RPManagerRegistry.shared.register(networkManager)
+        
+        let handshakeProvider = RPHandshakeProvider()
     }
     
-    static func fetchRenderTree<Id: RPRenderTreeId>(with id: Id) {}
+    static func fetchRenderTree<Id: RPRenderTreeId>(with id: Id) async throws -> RPWidget {
+        guard let cacheManager: RPCacheManager = await getManager(RPConstants.cacheManagerID),
+              let networkManager: RPNetworkManager = await getManager(RPConstants.networkManagerID)
+        else { throw RPError.notInitialized }
+        
+        let provider = RPRenderProvider(localDataSource: cacheManager, remoteDataSource: networkManager)
+        
+        return try await provider.fetch()
+    }
+    
+    private static func getManager<T: RPManager>(_ id: String) async -> T? {
+        await RPManagerRegistry.shared.getManager(with: id)
+    }
     
     static func invalidateRenderTreeCache<Id: RPRenderTreeId>(with id: Id) {}
     
@@ -29,4 +46,13 @@ public enum RenderProtocol {
             await plugin.didRequestDebugOverlayVisibilityChange(to: visible)
         }
     }
+}
+
+enum RPFetchPolicy: String, RPPortableEnum {
+    case cacheFirst
+    case remoteFirst
+    case cacheOnly
+    case remoteOnly
+    
+    var id: String { rawValue }
 }
