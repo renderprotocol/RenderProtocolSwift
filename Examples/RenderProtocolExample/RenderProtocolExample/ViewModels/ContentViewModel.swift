@@ -12,12 +12,10 @@ import RPGeneratedSwift
 @MainActor @Observable internal final class ContentViewModel {
     var widget: RPWidget?
     
-    @ObservationIgnored let rp = RenderProtocol()
-    
     func fetchView() {
         Task {
             do {
-                self.widget = try await rp.dryRun()
+                self.widget = try await RenderProtocol.fetchRenderTree(with: "")
                 debugPrint("----->>> View Fetched!")
             } catch {
                 debugPrint("----->>> \(error)")

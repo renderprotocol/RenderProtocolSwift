@@ -5,7 +5,7 @@ import Foundation
 import RPGeneratedSwift
 
 public enum RenderProtocol {
-    static func initialize(with config: RPConfig) async throws {
+    @concurrent public static func initialize(with config: RPConfig) async throws {
         let cacheManager = RPCacheManager()
         
         let networkManager = RPNetworkManager(address: config.address, port: config.port)
@@ -17,7 +17,7 @@ public enum RenderProtocol {
         let handshakeProvider = RPHandshakeProvider()
     }
     
-    static func fetchRenderTree(with id: String) async throws -> RPWidget {
+    @concurrent public static func fetchRenderTree(with id: String) async throws -> RPWidget {
         guard let cacheManager: RPCacheManager = await getManager(RPConstants.cacheManagerID),
               let networkManager: RPNetworkManager = await getManager(RPConstants.networkManagerID)
         else { throw RPError.notInitialized }
@@ -31,17 +31,17 @@ public enum RenderProtocol {
         await RPManagerRegistry.shared.getManager(with: id)
     }
     
-    static func invalidateRenderTreeCache(with id: String) {}
+    @concurrent public static func invalidateRenderTreeCache(with id: String) async {}
     
-    static func register<Plugin: RPPlugin>(plugin: Plugin) async throws {
+    @concurrent public static func register<Plugin: RPPlugin>(plugin: Plugin) async throws {
         try await RPPluginRegistry.shared.register(plugin)
     }
     
-    static func unregister(pluginWithId id: String) async throws {
+    @concurrent public static func unregister(pluginWithId id: String) async throws {
         try await RPPluginRegistry.shared.unregister(id)
     }
     
-    static func debugOverlay(visible: Bool) async {
+    @concurrent public static func debugOverlay(visible: Bool) async {
         await RPPluginRegistry.shared.forEachPlugin { plugin in
             await plugin.didRequestDebugOverlayVisibilityChange(to: visible)
         }

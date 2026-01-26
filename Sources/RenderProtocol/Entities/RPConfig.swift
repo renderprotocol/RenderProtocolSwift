@@ -12,8 +12,8 @@ public struct RPConfig: RPPortable {
     let address: String
     let port: Int
     
-    public init(id: UUID, address: String, port: Int) {
-        self.id = id
+    public init(address: String, port: Int) {
+        self.id = UUID()
         self.address = address
         self.port = port
     }
