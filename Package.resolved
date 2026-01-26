@@ -1,5 +1,5 @@
 {
-  "originHash" : "6bb5a049820a7555cece70d34686986458bb10ade71a18c8fd474f3650c2ce38",
+  "originHash" : "88015b6b6565b93a38bc0625366fdfbe9b45cb41f23879ba315708c9557077aa",
   "pins" : [
     {
       "identity" : "grpc-swift-2",
@@ -34,7 +34,7 @@
       "location" : "https://github.com/renderprotocol/RPGeneratedSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "05500af6247939fe4a9fc0bfe7e162a5d47d000b"
+        "revision" : "00bc1ebe26492f08cddb563560605ced2528b2c4"
       }
     },
     {

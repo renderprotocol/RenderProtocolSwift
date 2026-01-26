@@ -14,8 +14,8 @@ internal struct RPRenderProvider {
     
     func fetch() async throws -> RPWidget {
         let client = try await remoteDataSource.makeRenderServiceClient()
-        let req = RPFetchViewRequest()
-        let resp = try await client.rpFetchView(request: .init(message: req))
+        let req = RPFetchRenderTreeRequest()
+        let resp = try await client.rpFetchRenderTree(request: .init(message: req))
         return resp.view
     }
 }
