@@ -9,13 +9,13 @@ import Foundation
 import RPGeneratedSwift
 
 public protocol RPPlugin: RPRegisterable {
-    func didRequest<Id: RPRenderTreeId>(renderTreeWithId id: Id)
-    func didReceive<Id: RPRenderTreeId>(renderTree: RPWidget, withId id: Id)
+    func didRequest(renderTreeWithId id: String)
+    func didReceive(renderTree: RPWidget, withId id: String)
     func didRequestDebugOverlayVisibilityChange(to visible: Bool)
 }
 
 extension RPPlugin {
-    func didRequest<Id: RPRenderTreeId>(renderTreeWithId id: Id) {}
-    func didReceive<Id: RPRenderTreeId>(renderTree: RPWidget, withId id: Id) {}
+    func didRequest(renderTreeWithId id: String) {}
+    func didReceive(renderTree: RPWidget, withId id: String) {}
     func didRequestDebugOverlayVisibilityChange(to visible: Bool) {}
 }

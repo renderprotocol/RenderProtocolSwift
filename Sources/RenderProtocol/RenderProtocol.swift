@@ -17,7 +17,7 @@ public enum RenderProtocol {
         let handshakeProvider = RPHandshakeProvider()
     }
     
-    static func fetchRenderTree<Id: RPRenderTreeId>(with id: Id) async throws -> RPWidget {
+    static func fetchRenderTree(with id: String) async throws -> RPWidget {
         guard let cacheManager: RPCacheManager = await getManager(RPConstants.cacheManagerID),
               let networkManager: RPNetworkManager = await getManager(RPConstants.networkManagerID)
         else { throw RPError.notInitialized }
@@ -31,7 +31,7 @@ public enum RenderProtocol {
         await RPManagerRegistry.shared.getManager(with: id)
     }
     
-    static func invalidateRenderTreeCache<Id: RPRenderTreeId>(with id: Id) {}
+    static func invalidateRenderTreeCache(with id: String) {}
     
     static func register<Plugin: RPPlugin>(plugin: Plugin) async throws {
         try await RPPluginRegistry.shared.register(plugin)
