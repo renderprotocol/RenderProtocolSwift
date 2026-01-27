@@ -20,7 +20,7 @@ internal actor RPPluginRegistry {
     
     func unregister(_ id: String) async throws {
         try await store[id]?.willUnregister()
-        store[id] = nil
+        store.removeValue(forKey: id)
     }
     
     func getPlugin<P: RPPlugin>(with id: String) -> P? {

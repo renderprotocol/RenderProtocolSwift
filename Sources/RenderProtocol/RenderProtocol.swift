@@ -14,7 +14,7 @@ public enum RenderProtocol {
         try await RPManagerRegistry.shared.register(cacheManager)
         try await RPManagerRegistry.shared.register(networkManager)
         
-        let handshakeProvider = RPHandshakeProvider()
+        let handshakeProvider = RPHandshakeServiceProvider()
     }
     
     @concurrent public static func fetchRenderTree(with id: String) async throws -> RPWidget {
@@ -22,7 +22,7 @@ public enum RenderProtocol {
               let networkManager: RPNetworkManager = await getManager(RPConstants.networkManagerID)
         else { throw RPError.notInitialized }
         
-        let provider = RPRenderProvider(localDataSource: cacheManager, remoteDataSource: networkManager)
+        let provider = RPRenderServiceProvider(localDataSource: cacheManager, remoteDataSource: networkManager)
         
         return try await provider.fetch()
     }

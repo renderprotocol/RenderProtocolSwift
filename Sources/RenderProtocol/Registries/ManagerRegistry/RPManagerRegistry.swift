@@ -20,7 +20,7 @@ internal actor RPManagerRegistry {
     
     func unregister(_ id: String) async throws {
         try await store[id]?.willUnregister()
-        store[id] = nil
+        store.removeValue(forKey: id)
     }
     
     func getManager<M: RPManager>(with id: String) -> M? {

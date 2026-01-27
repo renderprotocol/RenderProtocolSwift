@@ -1,5 +1,5 @@
 //
-//  RPRenderProvider.swift
+//  RPRenderServiceProvider.swift
 //  RenderProtocolSwift
 //
 //  Created by Arindam Karmakar on 26/01/26.
@@ -8,9 +8,9 @@
 import Foundation
 import RPGeneratedSwift
 
-internal struct RPRenderProvider {
-    let localDataSource: any RPRenderLocalDataSource
-    let remoteDataSource: any RPRenderRemoteDataSource
+internal struct RPRenderServiceProvider {
+    let localDataSource: any RPRenderServiceLocalDataSource
+    let remoteDataSource: any RPRenderServiceRemoteDataSource
     
     func fetch() async throws -> RPWidget {
         let client = try await remoteDataSource.makeRenderServiceClient()
