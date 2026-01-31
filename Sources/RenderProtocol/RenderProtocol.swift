@@ -3,6 +3,7 @@
 
 import Foundation
 import RPGeneratedSwift
+import RPUtilsSwift
 
 public enum RenderProtocol {
     @concurrent public static func initialize(with config: RPConfig) async throws {

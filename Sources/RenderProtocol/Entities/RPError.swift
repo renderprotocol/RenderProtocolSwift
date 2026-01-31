@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RPUtilsSwift
 
 public enum RPError: String, LocalizedError, RPPortableEnum {
     case notInitialized

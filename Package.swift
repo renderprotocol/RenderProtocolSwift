@@ -18,7 +18,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/grpc/grpc-swift-2.git", from: "2.2.1"),
         .package(url: "https://github.com/grpc/grpc-swift-nio-transport.git", from: "2.4.0"),
-        .package(url: "https://github.com/renderprotocol/RPGeneratedSwift.git", branch: "main")
+        .package(url: "https://github.com/renderprotocol/RPGeneratedSwift.git", branch: "main"),
+        .package(url: "https://github.com/renderprotocol/RPUtilsSwift.git", branch: "main")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -28,7 +29,8 @@ let package = Package(
             dependencies: [
                 .product(name: "GRPCCore", package: "grpc-swift-2"),
                 .product(name: "GRPCNIOTransportHTTP2", package: "grpc-swift-nio-transport"),
-                .product(name: "RPGeneratedSwift", package: "RPGeneratedSwift")
+                .product(name: "RPGeneratedSwift", package: "RPGeneratedSwift"),
+                .product(name: "RPUtilsSwift", package: "RPUtilsSwift")
             ]
         ),
         .testTarget(

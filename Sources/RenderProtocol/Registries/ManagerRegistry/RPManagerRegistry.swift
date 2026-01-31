@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RPUtilsSwift
 
 internal actor RPManagerRegistry {
     static let shared = RPManagerRegistry()

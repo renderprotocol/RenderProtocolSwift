@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RPUtilsSwift
 
 public struct RPConfig: RPPortable {
     public let id: UUID
