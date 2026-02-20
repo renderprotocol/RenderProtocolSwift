@@ -10,8 +10,11 @@ import SwiftUI
 
 public struct RPColumnView: View {
     let column: RPColumn
+    
     public var body: some View {
-        VStack {
+        let spacing = column.spacing > 0 ? CGFloat(column.spacing) : nil
+        
+        VStack(alignment: column.alignment.horizontalAlignment, spacing: spacing) {
             ForEach(column.children) { RPWidgetView(widget: $0) }
         }
     }

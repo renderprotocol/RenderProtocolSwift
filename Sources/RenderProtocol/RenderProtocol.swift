@@ -2,8 +2,8 @@
 // https://docs.swift.org/swift-book
 
 import Foundation
-import RPGeneratedSwift
 import RPUtilsSwift
+public import RPGeneratedSwift
 
 public enum RenderProtocol {
     @concurrent public static func initialize(with config: RPConfig) async throws {

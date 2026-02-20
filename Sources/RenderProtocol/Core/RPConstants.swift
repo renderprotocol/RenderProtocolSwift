@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 internal enum RPConstants {
     static let cacheManagerID: String = "renderprotocol.cache_manager"
     static let networkManagerID: String = "renderprotocol.network_manager"
+    
+    static var defaultBackgroundColor: Color {
+        #if os(macOS)
+        return Color(.windowBackgroundColor)
+        #else
+        return Color(.systemBackground)
+        #endif
+    }
 }

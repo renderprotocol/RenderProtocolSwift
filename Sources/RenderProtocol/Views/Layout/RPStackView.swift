@@ -10,8 +10,9 @@ import SwiftUI
 
 public struct RPStackView: View {
     let stack: RPStack
+
     public var body: some View {
-        ZStack {
+        ZStack(alignment: stack.alignment.swiftUIAlignment) {
             ForEach(stack.children) { RPWidgetView(widget: $0) }
         }
     }

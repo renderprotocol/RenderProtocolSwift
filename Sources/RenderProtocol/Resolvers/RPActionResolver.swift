@@ -1,0 +1,10 @@
+//
+//  RPActionResolver.swift
+//  RenderProtocolSwift
+//
+//  Created by Arindam Karmakar on 20/02/26.
+//
+
+import Foundation
+
+public protocol RPActionResolver {}
