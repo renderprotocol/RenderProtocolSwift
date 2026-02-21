@@ -1,13 +1,13 @@
 //
-//  RPScrollViewView.swift
+//  RPScrollableView.swift
 //  RenderProtocolSwift
 //
 
 import RPGeneratedSwift
 import SwiftUI
 
-public struct RPScrollViewView: View {
-    let scrollView: RPScrollView
+public struct RPScrollableView: View {
+    let scrollView: RPScrollable
 
     public var body: some View {
         ScrollView(scrollView.axis.swiftUIAxis, showsIndicators: scrollView.showsIndicators) {
