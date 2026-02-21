@@ -23,7 +23,7 @@ public struct RPWidgetView: View {
         case .row(let row): RPRowView(row: row)
         case .column(let column): RPColumnView(column: column)
         case .stack(let stack): RPStackView(stack: stack)
-        case .scrollView(let scrollView): RPScrollViewView(scrollView: scrollView)
+        case .scrollable(let scrollable): RPScrollableView(scrollable: scrollable)
         case .lazyList(let lazyList): RPLazyListView(lazyList: lazyList)
         case .lazyGrid(let lazyGrid): RPLazyGridView(lazyGrid: lazyGrid)
         case .wrap(let wrap): RPWrapView(wrap: wrap)

@@ -7,12 +7,12 @@ import RPGeneratedSwift
 import SwiftUI
 
 public struct RPScrollableView: View {
-    let scrollView: RPScrollable
-
+    let scrollable: RPScrollable
+    
     public var body: some View {
-        ScrollView(scrollView.axis.swiftUIAxis, showsIndicators: scrollView.showsIndicators) {
-            if scrollView.hasChild {
-                RPWidgetView(widget: scrollView.child)
+        ScrollView(scrollable.axis.swiftUIAxis, showsIndicators: scrollable.showsIndicators) {
+            if scrollable.hasChild {
+                RPWidgetView(widget: scrollable.child)
             }
         }
     }

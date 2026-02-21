@@ -34,7 +34,7 @@
       "location" : "https://github.com/renderprotocol/RPGeneratedSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "912ae6d097eeee5faacfb8cfe4d78b21b55440a9"
+        "revision" : "e7ea4e5e2b1f51c61e69411feaa028d9c6f2a06b"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/renderprotocol/RPUtilsSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a341583d8356fc76dd0898a539929116835055e2"
+        "revision" : "144de7c64c8e7f916d65160f5a67493e14b70ca8"
       }
     },
     {
@@ -204,8 +204,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-server/swift-service-lifecycle.git",
       "state" : {
-        "revision" : "9db4c30383d051ece05f77b4a9f7962018dab81f",
-        "version" : "2.10.0"
+        "revision" : "89888196dd79c61c50bca9a103d8114f32e1e598",
+        "version" : "2.10.1"
       }
     },
     {
